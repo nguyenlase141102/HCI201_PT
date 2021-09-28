@@ -111,7 +111,10 @@ class HomePage extends StatelessWidget {
 
                           ],
                         ),
-                        RaisedButton(onPressed: () {} , child: Text(
+                        RaisedButton(onPressed: () {
+                          Navigator.push(context , MaterialPageRoute(builder: (context) => screen2()));
+
+                        } , child: Text(
                             "Tìm hiểu"
 
                         ),
@@ -295,4 +298,25 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+class screen2 extends StatelessWidget {
+  const screen2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Hello anh em"
+        ),
+      ),
+      body: Center(
+        child: Text(
+          "Screen 2"
+        ),
+      ),
+    );
+  }
+}
+
 
