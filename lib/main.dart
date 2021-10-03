@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project2/pages/navbar.dart';
+import 'package:project2/views/profile_page.dart';
 
 void main() => runApp(
   MaterialApp(
@@ -15,15 +17,16 @@ class HomePage extends StatelessWidget {
     var size = MediaQuery.of(context).size; // get total width and height of your device
     return Scaffold(
         backgroundColor: Colors.grey,
+        drawer: NavBar(),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(60.0),
           child: AppBar(
             backgroundColor: Colors.red[600],
-            leading: IconButton(onPressed: () {}, icon: Icon(
+            /*leading: IconButton(onPressed: () {}, icon: Icon(
               Icons.menu,
               color: Colors.grey,
             ),
-            ),
+            ),*/
             title: Center(
 
                 child: Container (
@@ -112,7 +115,7 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                         RaisedButton(onPressed: () {
-                          Navigator.push(context , MaterialPageRoute(builder: (context) => screen2()));
+                          Navigator.push(context , MaterialPageRoute(builder: (context) => ProfilePage()));
 
                         } , child: Text(
                             "Tìm hiểu"
@@ -183,7 +186,9 @@ class HomePage extends StatelessWidget {
 
                           ],
                         ),
-                        RaisedButton(onPressed: () {} , child: Text(
+                        RaisedButton(onPressed: () {
+                          Navigator.push(context , MaterialPageRoute(builder: (context) => ProfilePage()));
+                        } , child: Text(
                           "Tìm hiểu"
 
                         ),
@@ -252,7 +257,9 @@ class HomePage extends StatelessWidget {
 
                           ],
                         ),
-                        RaisedButton(onPressed: () {} , child: Text(
+                        RaisedButton(onPressed: () {
+                          Navigator.push(context , MaterialPageRoute(builder: (context) => ProfilePage()));
+                        } , child: Text(
                             "Tìm hiểu"
 
                         ),
