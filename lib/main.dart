@@ -1,20 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:project2/pages/home.dart';
 import 'package:project2/pages/navbar.dart';
+import 'package:project2/pages/phonebook.dart';
+import 'package:project2/pages/settings.dart';
 import 'package:project2/views/profile_page.dart';
 
-void main() => runApp(
+/*void main() => runApp(
   MaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomePage()
   )
-);
-
+);*/
+void main() {
+  runApp( HomePage());
+}
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size; // get total width and height of your device
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: HomePageApp(),
+    );
+  }
+}
+
+class HomePageApp extends StatefulWidget {
+  const HomePageApp({ Key? key }) : super(key: key);
+
+  @override
+  _HomePageAppState createState() => _HomePageAppState();
+}
+
+class _HomePageAppState extends State<HomePageApp> {
+  int _currentIndex = 0;
+  final List pages = [
+    HomePageLocal(),
+    null,
+    PhoneBook(),
+    Settings(),
+  ];
+  
+  @override
+  Widget build(BuildContext context) {
+    //var size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.grey,
         drawer: NavBar(),
@@ -22,11 +55,6 @@ class HomePage extends StatelessWidget {
           preferredSize: Size.fromHeight(60.0),
           child: AppBar(
             backgroundColor: Colors.red[600],
-            /*leading: IconButton(onPressed: () {}, icon: Icon(
-              Icons.menu,
-              color: Colors.grey,
-            ),
-            ),*/
             title: Center(
 
                 child: Container (
@@ -51,227 +79,95 @@ class HomePage extends StatelessWidget {
 
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Card(
-                margin: EdgeInsets.symmetric(horizontal: 70.0,vertical: 20.0),
-                color: Colors.grey[600],
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Ink.image(image: NetworkImage("https://i.imgur.com/YpI7oQs.jpg"),
-                          child: InkWell(
-                            onTap: () {},
-                          ),
-                          height: 150,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 8),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                            "Họ tên : Trần Cao Dũng",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                            "Email: @DungTran147",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                            "Kinh nghiệm : 3 năm",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
+        body: pages[_currentIndex],
 
-                          children: [
-                            Text('Đánh giá : 4.5/5',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                )
+        bottomNavigationBar:
 
-                            ),
-                            Icon(Icons.star),
-
-                          ],
-                        ),
-                        RaisedButton(onPressed: () {
-                          Navigator.push(context , MaterialPageRoute(builder: (context) => ProfilePage()));
-
-                        } , child: Text(
-                            "Tìm hiểu"
-
-                        ),
-                          color: Colors.white,)
-                      ],
-                    )
-                  ],
-                ),
+        BottomNavigationBar(
+          backgroundColor: Colors.red[600],
+            type: BottomNavigationBarType.fixed,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+                backgroundColor: Colors.blue,
               ),
-              Card(
-                margin: EdgeInsets.symmetric(horizontal: 70.0,vertical: 20.0),
-                color: Colors.grey[600],
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Ink.image(image: NetworkImage("https://storage.googleapis.com/cmg-f8/4eb28968-66b1-11eb-a371-f2d04e0ae674/49a194c5-9a40-4907-91d2-dd7be2ec38a9-MAN_6376.jpg"),
-                          child: InkWell(
-                            onTap: () {},
-                          ),
-                          height: 150,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 8),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                            "Họ tên : Cao Mạnh Cường",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                            "Email: @CuongCao147",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                            "Kinh nghiệm : 4 năm",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
-
-                          children: [
-                            Text('Đánh giá : 4.8/5',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                )
-
-                            ),
-                            Icon(Icons.star),
-
-                          ],
-                        ),
-                        RaisedButton(onPressed: () {
-                          Navigator.push(context , MaterialPageRoute(builder: (context) => ProfilePage()));
-                        } , child: Text(
-                          "Tìm hiểu"
-
-                        ),
-                        color: Colors.white,)
-                      ],
-                    )
-                  ],
-                ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.account_balance_wallet),
+                label: 'Wallet',
+                backgroundColor: Colors.red,
               ),
-              Card(
-                margin: EdgeInsets.symmetric(horizontal: 70.0,vertical: 20.0),
-                color: Colors.grey[600],
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)
-                ),
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Ink.image(image: NetworkImage("https://storage.googleapis.com/cmg-f8/4eb28968-66b1-11eb-a371-f2d04e0ae674/b6de68bb-2984-4669-bd0c-05d263063be5-MAN_6552.jpg"),
-                          child: InkWell(
-                            onTap: () {},
-                          ),
-                          height: 150,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 8),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                            "Họ tên : Bùi Xuân Nam",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                            "Email: @NamBui47",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                            "Kinh nghiệm : 4 năm",
-                            style: TextStyle(
-                              color: Colors.white,
-                            )
-                        ),
-                        SizedBox(height: 8),
-                        Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
-
-                          children: [
-                            Text('Đánh giá : 4.7/5',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                )
-
-                            ),
-                            Icon(Icons.star),
-
-                          ],
-                        ),
-                        RaisedButton(onPressed: () {
-                          Navigator.push(context , MaterialPageRoute(builder: (context) => ProfilePage()));
-                        } , child: Text(
-                            "Tìm hiểu"
-
-                        ),
-                          color: Colors.white,)
-                      ],
-                    )
-                  ],
-                ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.chat),
+                label: 'Chat',
+                backgroundColor: Colors.blue,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+                backgroundColor: Colors.blue,
               ),
             ],
-          )
+            onTap: (index){
+              setState(() {
+              _currentIndex=index;
+              });
+            },
+        )
+
+    );
+  }
+}
+
+
+
+/*class HomePage extends StatelessWidget {
+
+
+  int _currentIndex = 0;
+  final List pages = [
+    HomePage(),
+    null,
+    PhoneBook(),
+    Settings(),
+  ];
+
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size; // get total width and height of your device
+    return Scaffold(
+        backgroundColor: Colors.grey,
+        drawer: NavBar(),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60.0),
+          child: AppBar(
+            backgroundColor: Colors.red[600],
+            title: Center(
+
+                child: Container (
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(29.5),
+                    ),
+                    child: TextField (
+                      decoration: InputDecoration(
+                        hintText: "Search",
+                        icon: Icon(Icons.search),
+                        border: InputBorder.none,
+                      ),
+                    )
+                )
+            ),
+            actions: <Widget>[
+              IconButton(onPressed: () {}, icon: Icon(Icons.message , color: Colors.grey)),
+              IconButton(onPressed: () {}, icon: Icon(Icons.notifications, color: Colors.grey)),
+            ],
+
           ),
+        ),
+        body: HomePageLocal(),
 
         bottomNavigationBar:
 
@@ -299,7 +195,12 @@ class HomePage extends StatelessWidget {
                 label: 'Person',
                 backgroundColor: Colors.blue,
               ),
-            ]
+            ],
+            onTap: (index){
+              setState(() {
+              _currentIndex=index;
+              });
+            },
         )
 
     );
@@ -324,6 +225,6 @@ class screen2 extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 
