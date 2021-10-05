@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePageLocal> {
       children: [
         Card(
           margin: EdgeInsets.symmetric(horizontal: 70.0, vertical: 20.0),
-          color: Colors.grey[600],
+          color: Colors.red[400],
           clipBehavior: Clip.antiAlias,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePageLocal> {
         ),
         Card(
           margin: EdgeInsets.symmetric(horizontal: 70.0, vertical: 20.0),
-          color: Colors.grey[600],
+          color: Colors.red[400],
           clipBehavior: Clip.antiAlias,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePageLocal> {
                 children: [
                   Ink.image(
                     image: NetworkImage(
-                        "https://storage.googleapis.com/cmg-f8/4eb28968-66b1-11eb-a371-f2d04e0ae674/49a194c5-9a40-4907-91d2-dd7be2ec38a9-MAN_6376.jpg"),
+                        "https://i.imgur.com/YpI7oQs.jpg"),
                     child: InkWell(
                       onTap: () {},
                     ),
@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePageLocal> {
         ),
         Card(
           margin: EdgeInsets.symmetric(horizontal: 70.0, vertical: 20.0),
-          color: Colors.grey[600],
+          color: Colors.red[400],
           clipBehavior: Clip.antiAlias,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePageLocal> {
                 children: [
                   Ink.image(
                     image: NetworkImage(
-                        "https://storage.googleapis.com/cmg-f8/4eb28968-66b1-11eb-a371-f2d04e0ae674/b6de68bb-2984-4669-bd0c-05d263063be5-MAN_6552.jpg"),
+                        "https://i.imgur.com/YpI7oQs.jpg"),
                     child: InkWell(
                       onTap: () {},
                     ),

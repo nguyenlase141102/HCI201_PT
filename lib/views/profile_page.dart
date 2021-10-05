@@ -131,13 +131,13 @@ class ProfilePage extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              "Ngôn ngữ",
+                              "Lịch tập",
                               style: TextStyle(fontSize: 15),
                             ),
                             Text(
-                              "English",
+                              "Còn trống",
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w600),
+                                  fontSize: 20, fontWeight: FontWeight.w600, color: Colors.green),
                             )
                           ],
                         ),
@@ -169,10 +169,10 @@ class ProfilePage extends StatelessWidget {
                         color: Colors.grey,
                         size: 30,
                       ),
-                      Text("Bio",
+                      Text("Biography",
                           style: TextStyle(
                               fontSize: 30,
-                              color: Colors.greenAccent,
+                              color: Colors.black,
                               fontWeight: FontWeight.w700)),
                       RaisedButton(onPressed: () {
                               Navigator.push(context , MaterialPageRoute(builder: (context) => ProfilePage()));

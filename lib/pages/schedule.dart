@@ -45,7 +45,7 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
             TableCalendar(
               initialCalendarFormat: CalendarFormat.month,
               calendarStyle: CalendarStyle(
-                  todayColor: Colors.blue,
+                  todayColor: Colors.red[400],
                   selectedColor: Theme.of(context).primaryColor,
                   todayStyle: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _HomeCalendarPageState extends State<HomeCalendarPage> {
                     margin: const EdgeInsets.all(5.0),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Colors.red[400],
                         borderRadius: BorderRadius.circular(8.0)),
                     child: Text(
                       date.day.toString(),

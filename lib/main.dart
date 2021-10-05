@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project2/pages/home.dart';
 import 'package:project2/pages/navbar.dart';
 import 'package:project2/pages/phonebook.dart';
+import 'package:project2/pages/schedule.dart';
 import 'package:project2/pages/settings.dart';
 import 'package:project2/views/profile_page.dart';
 
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -40,7 +42,7 @@ class _HomePageAppState extends State<HomePageApp> {
   int _currentIndex = 0;
   final List pages = [
     HomePageLocal(),
-    null,
+    HomeCalendarPage(),
     PhoneBook(),
     Settings(),
   ];
@@ -49,7 +51,7 @@ class _HomePageAppState extends State<HomePageApp> {
   Widget build(BuildContext context) {
     //var size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         drawer: NavBar(),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(60.0),
@@ -94,7 +96,7 @@ class _HomePageAppState extends State<HomePageApp> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_balance_wallet),
-                label: 'Wallet',
+                label: 'Schedule',
                 backgroundColor: Colors.red,
               ),
               BottomNavigationBarItem(

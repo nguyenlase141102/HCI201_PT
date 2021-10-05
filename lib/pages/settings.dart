@@ -106,7 +106,7 @@ class _SettingsState extends State<Settings> {
         title,
         style: TextStyle(
             fontSize: 20,
-            color: Colors.purple[600],
+            color: Colors.black,
             fontWeight: FontWeight.bold),
       ),
     );

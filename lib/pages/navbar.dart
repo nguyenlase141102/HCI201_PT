@@ -22,7 +22,7 @@ class NavBar extends StatelessWidget {
               ),
             ),
             decoration: BoxDecoration(
-              color: Colors.purple,
+              color: Colors.red[400],
               image: DecorationImage(
                 image: NetworkImage(
                   'https://i.pinimg.com/originals/6b/a7/cd/6ba7cd81a0bef63d482a8f7a0e5fc6cd.jpg',
